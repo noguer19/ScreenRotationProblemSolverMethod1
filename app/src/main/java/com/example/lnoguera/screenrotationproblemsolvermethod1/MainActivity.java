@@ -37,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
                 btnSubmit.setText("LOGOUT");
             }
         });
+
+        //The restoring of the instance state can be done either in the onCreate method and the onRestoreInstanceState
+        if(savedInstanceState != null){
+            btnSubmit.setText(savedInstanceState.getString(KEY_BTN_TEXT));
+            txvMessage.setText(savedInstanceState.getString(KEY_MESSAGE));
+        }
     }
 
     @Override
@@ -44,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         Log.i(TAG, "onRestoreInstanceState()");
 
-        btnSubmit.setText(savedInstanceState.getString(KEY_BTN_TEXT));
-        txvMessage.setText(savedInstanceState.getString(KEY_MESSAGE));
+        /*btnSubmit.setText(savedInstanceState.getString(KEY_BTN_TEXT));
+        txvMessage.setText(savedInstanceState.getString(KEY_MESSAGE));*/
     }
 
     @Override
